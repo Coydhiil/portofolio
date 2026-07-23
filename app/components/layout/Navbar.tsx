@@ -80,14 +80,14 @@ const Navbar = () => {
       <div className="flex-1 flex justify-start">
         <Link
           href="#"
-          className="text-sm sm:text-base font-bold tracking-tight text-neutral-800 dark:text-neutral-100 hover:opacity-80 transition-opacity whitespace-nowrap"
+          className="text-sm sm:text-base font-bold tracking-wider text-neutral-800 dark:text-neutral-100 hover:opacity-80 transition-opacity whitespace-nowrap"
         >
-          FADHIIL <span className="hidden sm:inline">FIANNATA N</span>
+          FAD<span className="text-cyan-400">HIIL;</span>
         </Link>
       </div>
 
       <div className="flex-none flex items-center justify-center">
-        <div className="flex items-center justify-center bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md shadow-xl rounded-full px-3 py-1.5 border border-neutral-200/50 dark:border-neutral-800/50">
+        <div className="flex items-center justify-center bg-transparent backdrop-blur-md shadow-xl rounded-full px-3 py-1.5 border border-neutral-200/50 dark:border-neutral-800/50">
           <div
             ref={containerRef}
             className="relative flex items-center justify-center gap-1"
@@ -125,7 +125,7 @@ const Navbar = () => {
       <div className="flex-1 flex justify-end">
 
       </div>
-    </div>
+    </div >
   );
 };
 
