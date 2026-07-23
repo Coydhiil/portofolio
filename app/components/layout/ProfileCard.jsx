@@ -314,7 +314,6 @@ const ProfileCardComponent = ({
               <img
                 className="avatar top-7"
                 src={avatarUrl}
-                alt={`${name || 'User'} avatar`}
                 loading="lazy"
                 onError={e => {
                   const t = e.target;
@@ -327,7 +326,6 @@ const ProfileCardComponent = ({
                     <div className="pc-mini-avatar">
                       <img
                         src={miniAvatarUrl || avatarUrl}
-                        alt={`${name || 'User'} mini avatar`}
                         loading="lazy"
                         onError={e => {
                           const t = e.target;
@@ -346,7 +344,6 @@ const ProfileCardComponent = ({
                     onClick={handleContactClick}
                     style={{ pointerEvents: 'auto' }}
                     type="button"
-                    aria-label={`Contact ${name || 'user'}`}
                   >
                     {contactText}
                   </button>

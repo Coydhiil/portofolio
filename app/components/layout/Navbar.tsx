@@ -48,8 +48,8 @@ const Navbar = () => {
 
     const observerOptions = {
       root: null,
-      rootMargin: "-30% 0px -50% 0px",
-      threshold: 0.1,
+      rootMargin: "-20% 0px -35% 0px",
+      threshold: 0,
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -80,7 +80,7 @@ const Navbar = () => {
       <div className="flex-1 flex justify-start">
         <Link
           href="#"
-          className="text-sm sm:text-base font-bold tracking-wider text-neutral-800 dark:text-neutral-100 hover:opacity-80 transition-opacity whitespace-nowrap"
+          className="font-header text-sm lg:text-base font-bold tracking-wider text-neutral-800 dark:text-neutral-100 hover:opacity-80 transition-opacity whitespace-nowrap"
         >
           FAD<span className="text-cyan-400">HIIL;</span>
         </Link>
