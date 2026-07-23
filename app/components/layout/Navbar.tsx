@@ -10,7 +10,7 @@ const Navbar = () => {
   const itemRefs = useRef<(HTMLAnchorElement | null)[]>([]);
 
   const items = [
-    { id: 0, label: "Hero", href: "#hero" },
+    { id: 0, label: "Home", href: "#home" },
     { id: 1, label: "About", href: "#about" },
     { id: 2, label: "Projects", href: "#projects" },
     { id: 3, label: "Certificates", href: "#certificates" },

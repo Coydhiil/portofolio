@@ -1,15 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Montserrat, Open_Sans, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/layout/Navbar";
+import { cn } from "@/app/lib/utils";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
+
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const openSans = Open_Sans({
+  variable: "--font-open-sans",
   subsets: ["latin"],
 });
 
@@ -27,7 +30,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={cn("h-full", "antialiased", montserrat.variable, openSans.variable, "font-sans", inter.variable)}
     >
       <body className="min-h-full flex flex-col">
         <Navbar></Navbar>
