@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Montserrat, Open_Sans, Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "./components/layout/Navbar";
-import { cn } from "@/app/lib/utils";
+import Navbar from "../components/layout/Navbar";
+import { cn } from "@/lib/utils";
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
