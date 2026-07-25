@@ -32,6 +32,9 @@ export default function RootLayout({
       lang="en"
       className={cn("h-full", "antialiased", montserrat.variable, openSans.variable, "font-sans", inter.variable)}
     >
+      <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/dheereshag/coloured-icons@1.9.7/app/ci.min.css" />
+      </head>
       <body className="min-h-full flex flex-col">
         <Navbar></Navbar>
         {children}

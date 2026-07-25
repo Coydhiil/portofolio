@@ -13,8 +13,7 @@ const Navbar = () => {
     { id: 0, label: "Home", href: "#home" },
     { id: 1, label: "About", href: "#about" },
     { id: 2, label: "Projects", href: "#projects" },
-    { id: 3, label: "Certificates", href: "#certificates" },
-    { id: 4, label: "Contact", href: "#contact" },
+    { id: 3, label: "Contact", href: "#contact" },
   ];
 
   useEffect(() => {
@@ -79,7 +78,7 @@ const Navbar = () => {
     <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-full max-w-7xl px-6 sm:px-8 flex items-center justify-between">
       <div className="flex-1 flex justify-start">
         <Link
-          href="#"
+          href="#home"
           className="font-header text-sm lg:text-base font-bold tracking-wider text-neutral-800 dark:text-neutral-100 hover:opacity-80 transition-opacity whitespace-nowrap"
         >
           FAD<span className="text-cyan-400">HIIL;</span>
