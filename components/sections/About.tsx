@@ -62,7 +62,7 @@ export default function About() {
                     </div>
 
                     <div className="lg:col-span-5 flex">
-                        <div className="relative w-full p-6 sm:p-8 rounded-2xl bg-neutral-900/60 backdrop-blur-xl border border-neutral-800 shadow-2xl space-y-6 hover:border-cyan-500/30 transition-all duration-300 flex flex-col justify-between">
+                        <div className="relative w-full p-6 sm:p-8 rounded-2xl bg-neutral-900/60 backdrop-blur-xl border border-neutral-800 shadow-2xl space-y-6 hover:border-cyan-500/50 transition-all duration-300 flex flex-col justify-between">
                             <div className="absolute -top-10 -right-10 w-32 h-32 bg-indigo-600/15 rounded-full blur-2xl pointer-events-none"></div>
 
                             <div className="space-y-6">
