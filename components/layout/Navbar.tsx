@@ -77,12 +77,14 @@ const Navbar = () => {
   return (
     <header className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-full max-w-7xl px-6 sm:px-8 flex items-center justify-between">
       <div className="flex-1 flex justify-start">
-        <Link
-          href="#home"
-          className="font-header text-sm lg:text-base font-bold tracking-wider text-neutral-800 dark:text-neutral-100 hover:opacity-80 transition-opacity whitespace-nowrap"
-        >
-          FAD<span className="text-cyan-400">HIIL;</span>
-        </Link>
+        <div className="flex items-center justify-center bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md shadow-xl rounded-full px-4 py-2 border border-neutral-200/50 dark:border-neutral-800/50">
+          <Link
+            href="#home"
+            className="font-header text-sm lg:text-base font-bold tracking-wider text-neutral-900 dark:text-white hover:opacity-80 transition-opacity whitespace-nowrap"
+          >
+            FAD<span className="text-cyan-400">HIIL;</span>
+          </Link>
+        </div>
       </div>
 
       <nav className="hidden flex-none md:flex items-center justify-center">
