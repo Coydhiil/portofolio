@@ -22,7 +22,7 @@ export default function Hero() {
                         <div className="relative w-full">
                             <div className="absolute -inset-4 bg-indigo-600/25 blur-[120px] rounded-full -z-10 pointer-events-none" />
 
-                            <h1 className="text-6xl lg:text-8xl font-bold font-header tracking-tight text-white leading-none">
+                            <h1 className="text-xl lg:text-8xl font-bold font-header tracking-tight text-white leading-none">
                                 FADHIIL <br className="hidden sm:inline" />
                                 <span className="text-cyan-400 font-medium">
                                     FIANNATA N
@@ -42,7 +42,8 @@ export default function Hero() {
                                 View Projects
                             </a>
                             <a
-                                href="#about"
+                                href="/cv/Fadhiil_Fiannata_N_CV.pdf"
+                                download="Fadhiil_Fiannata_N_CV.pdf"
                                 className="w-full lg:w-auto  text-center px-8 py-3.5 rounded-full border border-neutral-800 text-neutral-300 text-sm font-semibold hover:bg-neutral-900/50 transition-all duration-300"
                             >
                                 Download CV

@@ -15,7 +15,7 @@ export default function Contact() {
         {
             name: "LinkedIn",
             handle: "Fadhiil Fiannata Nugroho",
-            href: "https://www.linkedin.com/in/fadhiil-fiannata-nugroho-24a300385/",
+            href: "https://www.linkedin.com/in/fadhiil-fiannata-nugroho/",
             icon: "/assets/linkedin-svgrepo-com.svg",
             alt: "LinkedIn Icon",
             glow: "hover:border-sky-500/40 hover:shadow-[0_0_25px_rgba(14,165,233,0.15)] hover:bg-sky-950/20"
