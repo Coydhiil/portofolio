@@ -5,7 +5,7 @@ export default function About() {
         {
             icon: GraduationCap,
             label: "Education",
-            value: "B.S. in Computer Science @ Udinus",
+            value: "B.S. in Computer Science @ UDINUS",
             subText: "Universitas Dian Nusantoro",
         },
         {
@@ -54,7 +54,7 @@ export default function About() {
                     <div className="text-white/75 lg:col-span-7 space-y-6 text-base sm:text-lg leading-relaxed flex flex-col justify-center">
                         <p>
                             Hi! I’m <strong className="text-white font-semibold">Fadhiil Fiannata N</strong>, a Computer Science student at
-                            <span className="text-cyan-400 font-medium"> Universitas Dian Nusantoro (Udinus)</span> passionate about turning complex, real-world problems into clean, efficient, and intelligent digital applications.
+                            <span className="text-cyan-400 font-medium"> Universitas Dian Nusantoro (UDINUS)</span> passionate about turning complex, real-world problems into clean, efficient, and intelligent digital applications.
                         </p>
                         <p>
                             My journey in technology is driven by curiosity, computational logic, and software design principles. Rather than limiting myself to a single discipline, I actively explore the intersection of <span className="text-white font-medium">Web Development</span>, <span className="text-white font-medium">Data Analytics</span>, and <span className="text-white font-medium">Machine Learning</span>.

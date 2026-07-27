@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useCallback, useMemo } from 'react';
+import React, { useEffect, useRef, useCallback, useMemo, useState } from 'react';
 import './ProfileCard.css';
 
 const DEFAULT_INNER_GRADIENT = 'linear-gradient(145deg,#60496e8c 0%,#71C4FF44 100%)';
@@ -28,12 +28,14 @@ const ProfileCardComponent = ({
   enableMobileTilt = false,
   mobileTiltSensitivity = 5,
   miniAvatarUrl = '',
-  handle = 'javicodes',
-  status = 'Online',
+  location = 'Semarang, ID',
+  campus = 'UDINUS',
+  email = "fadhiil.fiannata@email.com",
   contactText = 'Contact',
   showUserInfo = true,
   onContactClick = () => { }
 }) => {
+  const [copied, setCopied] = useState(false);
   const wrapRef = useRef(null);
   const shellRef = useRef(null);
 
@@ -302,6 +304,15 @@ const ProfileCardComponent = ({
     onContactClick?.();
   }, [onContactClick]);
 
+  const handleCopyEmail = useCallback((e) => {
+    e.stopPropagation();
+    if (typeof navigator !== 'undefined' && navigator.clipboard) {
+      navigator.clipboard.writeText(email);
+    }
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2200);
+  }, [email]);
+
   return (
     <div ref={wrapRef} className={`pc-card-wrapper ${className}`.trim()} style={cardStyle}>
       {behindGlowEnabled && <div className="pc-behind" />}
@@ -310,6 +321,7 @@ const ProfileCardComponent = ({
           <div className="pc-inside">
             <div className="pc-shine" />
             <div className="pc-glare" />
+
             <div className="pc-content pc-avatar-content">
               <img
                 className="avatar top-7"
@@ -335,18 +347,42 @@ const ProfileCardComponent = ({
                       />
                     </div>
                     <div className="pc-user-text">
-                      <div className="pc-handle">@{handle}</div>
-                      <div className="pc-status">{status}</div>
+                      <div className="pc-location">{location}</div>
+                      <div className="pc-campus">{campus}</div>
                     </div>
                   </div>
-                  <button
-                    className="pc-contact-btn"
-                    onClick={handleContactClick}
-                    style={{ pointerEvents: 'auto' }}
-                    type="button"
-                  >
-                    {contactText}
-                  </button>
+                  <div className="pc-actions">
+                    <button
+                      type="button"
+                      className={`pc-action-icon-btn ${copied ? 'copied' : ''}`}
+                      onClick={handleCopyEmail}
+                      title={copied ? "Email Copied!" : "Copy Email"}
+                    >
+                      {copied ? (
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                          <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                      ) : (
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                        </svg>
+                      )}
+                      <span className="pc-tooltip">{copied ? "Copied!" : "Copy Email"}</span>
+                    </button>
+
+                    <button
+                      className="pc-contact-btn"
+                      onClick={handleContactClick}
+                      type="button"
+                    >
+                      <span>{contactText}</span>
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <line x1="7" y1="17" x2="17" y2="7" />
+                        <polyline points="7 7 17 7 17 17" />
+                      </svg>
+                    </button>
+                  </div>
                 </div>
               )}
             </div>

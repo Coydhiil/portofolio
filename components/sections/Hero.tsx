@@ -16,7 +16,7 @@ export default function Hero() {
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
                                 <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
                             </span>
-                            CS Student @ Udinus | Ready to Contribute & Grow
+                            CS Student @ Universitas Dian Nuswantoro | Ready to Contribute & Grow
                         </div>
 
                         <div className="relative w-full">
@@ -57,8 +57,9 @@ export default function Hero() {
 
                             <ProfileCard
                                 avatarUrl="/assets/Fadhiil Udinus RB.png"
-                                handle="dhiilfn"
-                                status="Online"
+                                location="Semarang, ID"
+                                campus="UDINUS"
+                                email="fadhiil.fiannata@email.com"
                                 contactText="Let's Chat"
                                 behindGlowColor="rgba(99, 102, 241, 0.4)"
                                 behindGlowSize="60%"
