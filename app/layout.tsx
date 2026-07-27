@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Montserrat, Open_Sans, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/layout/Navbar";
+import Tabbar from "../components/layout/Tabbar";
 import Footer from "../components/layout/Footer";
 import { cn } from "@/lib/utils";
 
@@ -40,6 +41,7 @@ export default function RootLayout({
         <Navbar></Navbar>
         {children}
         <Footer></Footer>
+        <Tabbar></Tabbar>
       </body>
     </html>
   );

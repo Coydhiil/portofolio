@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
-import { ChevronLeft, ChevronRight, ExternalLink, FolderGit2 } from "lucide-react";
+import { ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 
 export interface Project {
     id: string | number;
@@ -36,8 +36,8 @@ export default function ProjectCarousel({ projects }: ProjectCarouselProps) {
     if (!projects?.length) {
         return (
             <div className="text-center py-16 bg-[#12141C]/60 backdrop-blur-md border border-white/10 rounded-2xl shadow-2xl">
-                <FolderGit2 className="w-12 h-12 text-gray-500 mx-auto mb-3" />
-                <p className="text-gray-400 text-lg">No projects found.</p>
+                <img src="/assets/github-142-svgrepo-com.svg" alt="GitHub" className="w-12 h-12 text-neutral-500 mx-auto mb-3" />
+                <p className="text-neutral-400 text-lg">No projects found.</p>
             </div>
         );
     }

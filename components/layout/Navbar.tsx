@@ -75,7 +75,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-full max-w-7xl px-6 sm:px-8 flex items-center justify-between">
+    <header className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-full max-w-7xl px-6 sm:px-8 flex items-center justify-between">
       <div className="flex-1 flex justify-start">
         <Link
           href="#home"
@@ -85,8 +85,8 @@ const Navbar = () => {
         </Link>
       </div>
 
-      <div className="flex-none flex items-center justify-center">
-        <div className="flex items-center justify-center bg-transparent backdrop-blur-md shadow-xl rounded-full px-3 py-1.5 border border-neutral-200/50 dark:border-neutral-800/50">
+      <nav className="hidden flex-none md:flex items-center justify-center">
+        <div className="flex items-center justify-center bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md shadow-xl rounded-full px-3 py-1.5 border border-neutral-200/50 dark:border-neutral-800/50">
           <div
             ref={containerRef}
             className="relative flex items-center justify-center gap-1"
@@ -108,7 +108,6 @@ const Navbar = () => {
                 ref={(el) => {
                   itemRefs.current[index] = el;
                 }}
-                onClick={() => setActive(index)}
                 className={`relative px-3 py-1.5 text-xs sm:text-sm font-medium rounded-full transition-colors duration-300 z-10 ${active === index
                   ? "text-neutral-900 dark:text-white"
                   : "text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-200"
@@ -119,12 +118,12 @@ const Navbar = () => {
             ))}
           </div>
         </div>
-      </div>
+      </nav>
 
       <div className="flex-1 flex justify-end">
 
       </div>
-    </div >
+    </header >
   );
 };
 

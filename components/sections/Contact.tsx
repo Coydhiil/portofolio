@@ -42,7 +42,7 @@ export default function Contact() {
 
     return (
         <section id="contact" className="relative font-paragraph min-h-screen py-24 lg:py-32 overflow-hidden">
-            <div className="absolute top-1/3 left-1/5 w-[750px] h-[400px] bg-indigo-600/15 blur-[140px] rounded-full pointer-events-none -z-10" />
+            <div className="absolute top-1/2 left-1 md:top-1/3 md:left-1/5 w-[750px] h-[400px] bg-indigo-600/15 blur-[140px] rounded-full pointer-events-none -z-10" />
 
             <div className="container mx-auto px-6 sm:px-12 max-w-7xl relative z-10 space-y-12 lg:space-y-16">
                 <div className="space-y-4 max-w-3xl">
