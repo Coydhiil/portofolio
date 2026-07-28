@@ -1,6 +1,5 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import ProfileCard from "../layout/ProfileCard";
 
 export default function Hero() {
@@ -49,7 +48,7 @@ export default function Hero() {
                             <div className="absolute inset-0 -m-8 bg-linear-to-tr from-indigo-500/10 to-purple-500/10 blur-3xl rounded-full -z-10" />
 
                             <ProfileCard
-                                avatarUrl="/assets/Fadhiil Udinus RB.png"
+                                avatarUrl="/assets/Fadhiil_Udinus_RB.webp"
                                 location="Semarang, ID"
                                 campus="UDINUS"
                                 email="fadhiil.fiannata@email.com"
