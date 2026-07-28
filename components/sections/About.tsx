@@ -67,7 +67,6 @@ export default function About() {
 
                             <div className="space-y-6">
                                 <h3 className="text-lg font-semibold text-white font-header tracking-wide flex items-center gap-2 border-b border-neutral-800 pb-4">
-                                    <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
                                     Quick Profile
                                 </h3>
 
