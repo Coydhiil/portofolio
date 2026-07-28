@@ -34,7 +34,8 @@
   perspective: 500px;
   transform: translate3d(0, 0, 0.1px);
   position: relative;
-  touch-action: none;
+  touch-action: pan-y;
+  will-change: transform;
 }
 
 .pc-behind {
@@ -45,7 +46,9 @@
   background: radial-gradient(circle at var(--pointer-x) var(--pointer-y),
       var(--behind-glow-color) 0%,
       transparent var(--behind-glow-size));
-  filter: blur(80px) saturate(0.8);
+  filter: blur(40px) saturate(0.8);
+  will-change: filter, opacity;
+  transform: translateZ(0);
   opacity: calc(0.25 * var(--card-opacity));
   transition: opacity 200ms ease;
 }

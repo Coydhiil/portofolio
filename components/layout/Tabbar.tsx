@@ -89,7 +89,7 @@ export default function Tabbar() {
     }, []);
 
     return (
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex md:hidden">
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex md:hidden transform-gpu">
             <nav className="flex items-center justify-center bg-neutral-900/80 backdrop-blur-md shadow-xl rounded-full px-7 py-1.5 border border-neutral-800/50">
                 <div
                     ref={containerRef}

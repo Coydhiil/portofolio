@@ -41,7 +41,7 @@ export default function About() {
         <section id="about" className="relative font-paragraph min-h-screen py-24 lg:py-32 overflow-hidden">
             <div className="container mx-auto px-6 sm:px-12 max-w-7xl relative z-10 space-y-16 lg:space-y-20">
                 <div className="space-y-4">
-                    <div className="absolute top-40 -left-30 w-48 h-48 bg-indigo-600/15 rounded-full blur-2xl pointer-events-none"></div>
+                    <div className="absolute top-40 -left-30 w-48 h-48 bg-indigo-600/15 rounded-full blur-2xl transform-gpu pointer-events-none"></div>
 
                     <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-600 text-white text-xs sm:text-sm font-semibold tracking-wider uppercase">
                         ABOUT ME

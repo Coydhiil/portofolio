@@ -89,7 +89,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-full max-w-7xl px-6 sm:px-8 flex items-center justify-between">
+    <header className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-full max-w-7xl px-6 sm:px-8 flex items-center justify-between transform-gpu">
       <div className="flex-1 flex justify-start">
         <div className="flex items-center justify-center bg-neutral-900/80 backdrop-blur-md shadow-xl rounded-full px-4 py-2 border border-neutral-800/50">
           <Link

@@ -12,7 +12,7 @@ export default function Hero() {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
                     <div className="lg:col-span-7 order-1 lg:order-2 space-y-6 text-left flex flex-col items-center md:items-start justify-center">
                         <div className="relative w-full">
-                            <div className="absolute -inset-4 bg-indigo-600/25 blur-[120px] rounded-full -z-10 pointer-events-none" />
+                            <div className="absolute -inset-4 bg-indigo-600/25 blur-2xl md:blur-[80px] transform-gpu rounded-full -z-10 pointer-events-none" />
 
                             <h1 className="text-6xl lg:text-8xl font-bold font-header tracking-tight text-white leading-none">
                                 FADHIIL <br className="hidden sm:inline" />
@@ -45,7 +45,7 @@ export default function Hero() {
 
                     <div className="lg:col-span-5 order-1 lg:order-2 flex justify-center lg:justify-end w-full">
                         <div className="relative w-full max-w-[360px] flex justify-center">
-                            <div className="absolute inset-0 -m-8 bg-linear-to-tr from-indigo-500/10 to-purple-500/10 blur-3xl rounded-full -z-10" />
+                            <div className="absolute inset-0 -m-8 bg-linear-to-tr from-indigo-500/10 to-purple-500/10 blur-2xl md:blur-[80px] transform-gpu rounded-full -z-10" />
 
                             <ProfileCard
                                 avatarUrl="/assets/Fadhiil_Udinus_RB.webp"
