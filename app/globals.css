@@ -1,10 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a0a;
+  --foreground: #ededed;
   --font-header: var(--font-montserrat), sans-serif;
   --font-paragraph: var(--font-open-sans), sans-serif;
+  color-scheme: dark;
 }
 
 @theme {
@@ -13,13 +14,6 @@
   --font-header: var(--font-header);
   --font-header: var(--font-montserrat), sans-serif;
   --font-paragraph: var(--font-open-sans), sans-serif;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 html {

@@ -76,14 +76,14 @@ export default function Tabbar() {
 
     return (
         <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex md:hidden">
-            <nav className="flex items-center justify-center bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md shadow-xl rounded-full px-7 py-1.5 border border-neutral-200/50 dark:border-neutral-800/50">
+            <nav className="flex items-center justify-center bg-neutral-900/80 backdrop-blur-md shadow-xl rounded-full px-7 py-1.5 border border-neutral-800/50">
                 <div
                     ref={containerRef}
                     className="relative flex items-center justify-center gap-1"
                 >
                     {indicatorStyle.width > 0 && (
                         <div
-                            className="absolute top-0 bottom-0 rounded-full bg-neutral-100 dark:bg-neutral-800 transition-all duration-300 ease-out -z-10"
+                            className="absolute top-0 bottom-0 rounded-full bg-neutral-800 transition-all duration-300 ease-out -z-10"
                             style={{
                                 width: `${indicatorStyle.width}px`,
                                 left: `${indicatorStyle.left}px`,
@@ -99,8 +99,8 @@ export default function Tabbar() {
                                 itemRefs.current[index] = el;
                             }}
                             className={`relative px-3 py-1.5 text-xs sm:text-sm font-medium rounded-full transition-colors duration-300 z-10 ${active === index
-                                ? "text-neutral-900 dark:text-white"
-                                : "text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-200"
+                                ? "text-white"
+                                : "text-neutral-400 hover:text-neutral-200"
                                 }`}
                         >
                             {item.label}

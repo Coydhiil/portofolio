@@ -77,10 +77,10 @@ const Navbar = () => {
   return (
     <header className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-full max-w-7xl px-6 sm:px-8 flex items-center justify-between">
       <div className="flex-1 flex justify-start">
-        <div className="flex items-center justify-center bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md shadow-xl rounded-full px-4 py-2 border border-neutral-200/50 dark:border-neutral-800/50">
+        <div className="flex items-center justify-center bg-neutral-900/80 backdrop-blur-md shadow-xl rounded-full px-4 py-2 border border-neutral-800/50">
           <Link
             href="#home"
-            className="font-header text-sm lg:text-base font-bold tracking-wider text-neutral-900 dark:text-white hover:opacity-80 transition-opacity whitespace-nowrap"
+            className="font-header text-sm lg:text-base font-bold tracking-wider text-white hover:opacity-80 transition-opacity whitespace-nowrap"
           >
             FAD<span className="text-cyan-400">HIIL;</span>
           </Link>
@@ -88,14 +88,14 @@ const Navbar = () => {
       </div>
 
       <nav className="hidden flex-none md:flex items-center justify-center">
-        <div className="flex items-center justify-center bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md shadow-xl rounded-full px-3 py-1.5 border border-neutral-200/50 dark:border-neutral-800/50">
+        <div className="flex items-center justify-center bg-neutral-900/80 backdrop-blur-md shadow-xl rounded-full px-3 py-1.5 border border-neutral-800/50">
           <div
             ref={containerRef}
             className="relative flex items-center justify-center gap-1"
           >
             {indicatorStyle.width > 0 && (
               <div
-                className="absolute top-0 bottom-0 rounded-full bg-neutral-100 dark:bg-neutral-800 transition-all duration-300 ease-out -z-10"
+                className="absolute top-0 bottom-0 rounded-full bg-neutral-800 transition-all duration-300 ease-out -z-10"
                 style={{
                   width: `${indicatorStyle.width}px`,
                   left: `${indicatorStyle.left}px`,
@@ -111,8 +111,8 @@ const Navbar = () => {
                   itemRefs.current[index] = el;
                 }}
                 className={`relative px-3 py-1.5 text-xs sm:text-sm font-medium rounded-full transition-colors duration-300 z-10 ${active === index
-                  ? "text-neutral-900 dark:text-white"
-                  : "text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-200"
+                  ? "text-white"
+                  : "text-neutral-400 hover:text-neutral-200"
                   }`}
               >
                 {item.label}
