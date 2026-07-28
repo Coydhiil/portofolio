@@ -1,5 +1,6 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import ProfileCard from "../layout/ProfileCard";
 
 export default function Hero() {

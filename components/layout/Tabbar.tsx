@@ -43,34 +43,48 @@ export default function Tabbar() {
     }, [active]);
 
     useEffect(() => {
-        const sections = items.map(item => document.querySelector(item.href));
+        let observer: IntersectionObserver | null = null;
+        let timer: NodeJS.Timeout;
 
-        const observerOptions = {
-            root: null,
-            rootMargin: "-20% 0px -35% 0px",
-            threshold: 0,
+        const initObserver = () => {
+            const sections = items
+                .map((item) => document.querySelector(item.href))
+                .filter(Boolean) as Element[];
+
+            if (observer) observer.disconnect();
+
+            observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            const id = entry.target.getAttribute("id");
+                            const index = items.findIndex((item) => item.href === `#${id}`);
+                            if (index !== -1) {
+                                setActive(index);
+                            }
+                        }
+                    });
+                },
+                {
+                    root: null,
+                    rootMargin: "-20% 0px -35% 0px",
+                    threshold: 0,
+                }
+            );
+
+            sections.forEach((section) => observer?.observe(section));
+
+            // Jika belum semua section (home, about, projects, contact) terpasang di DOM, coba lagi
+            if (sections.length < items.length) {
+                timer = setTimeout(initObserver, 200);
+            }
         };
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    const id = entry.target.getAttribute("id");
-                    const index = items.findIndex((item) => item.href === `#${id}`);
-                    if (index !== -1) {
-                        setActive(index);
-                    }
-                }
-            });
-        }, observerOptions);
-
-        sections.forEach((section) => {
-            if (section) observer.observe(section);
-        });
+        initObserver();
 
         return () => {
-            sections.forEach((section) => {
-                if (section) observer.unobserve(section);
-            });
+            if (observer) observer.disconnect();
+            clearTimeout(timer);
         };
     }, []);
 

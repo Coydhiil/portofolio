@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
+import Image from "next/image";
 
 export interface Project {
     id: string | number;
@@ -36,7 +37,7 @@ export default function ProjectCarousel({ projects }: ProjectCarouselProps) {
     if (!projects?.length) {
         return (
             <div className="text-center py-16 bg-[#12141C]/60 backdrop-blur-md border border-white/10 rounded-2xl shadow-2xl">
-                <img src="/assets/github-142-svgrepo-com.svg" alt="GitHub" className="w-12 h-12 text-neutral-500 mx-auto mb-3" />
+                <Image src="/assets/github-142-svgrepo-com.svg" alt="GitHub" width={48} height={48} className="w-12 h-12 text-neutral-500 mx-auto mb-3" />
                 <p className="text-neutral-400 text-lg">No projects found.</p>
             </div>
         );
@@ -75,9 +76,11 @@ export default function ProjectCarousel({ projects }: ProjectCarouselProps) {
                             exit="exit"
                             className="absolute inset-0 w-full h-full"
                         >
-                            <img
+                            <Image
                                 src={current.img_url || "/placeholder-project.png"}
                                 alt={current.name}
+                                fill
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 50vw"
                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                                 onError={(e) => {
                                     (e.target as HTMLImageElement).src =
@@ -157,7 +160,7 @@ export default function ProjectCarousel({ projects }: ProjectCarouselProps) {
                                         rel="noopener noreferrer"
                                         className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-white/5 hover:bg-white/10 text-white text-xs sm:text-sm font-semibold border border-white/10 hover:border-white/20 transition-all duration-300 active:scale-95 shadow-lg"
                                     >
-                                        <img src="/assets/github-142-svgrepo-com.svg" alt="GitHub" className="w-4 h-4" />
+                                        <Image src="/assets/github-142-svgrepo-com.svg" width={16} height={16} alt="GitHub" className="w-4 h-4" />
                                         Repository
                                     </a>
                                 )}

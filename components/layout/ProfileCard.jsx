@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useCallback, useMemo, useState } from 'react';
 import './ProfileCard.css';
+import Image from "next/image";
 
 const DEFAULT_INNER_GRADIENT = 'linear-gradient(145deg,#60496e8c 0%,#71C4FF44 100%)';
 
@@ -322,10 +323,13 @@ const ProfileCardComponent = ({
             <div className="pc-shine" />
             <div className="pc-glare" />
             <div className="pc-content pc-avatar-content">
-              <img
+              <Image
                 className="avatar top-7"
                 src={avatarUrl}
-                loading="lazy"
+                alt="Fadhiil"
+                width={400}
+                height={400}
+                priority={true}
                 onError={e => {
                   const t = e.target;
                   t.style.display = 'none';
@@ -335,9 +339,12 @@ const ProfileCardComponent = ({
                 <div className="pc-user-info">
                   <div className="pc-user-details">
                     <div className="pc-mini-avatar">
-                      <img
+                      <Image
                         src={miniAvatarUrl || avatarUrl}
-                        loading="lazy"
+                        alt="Fadhiil"
+                        width={400}
+                        height={400}
+                        loading="eager"
                         onError={e => {
                           const t = e.target;
                           t.style.opacity = '0.5';
