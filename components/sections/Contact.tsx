@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 
 import { useState } from "react";
 
@@ -46,38 +47,42 @@ export default function Contact() {
       className="relative font-paragraph min-h-screen py-24 lg:py-32 overflow-hidden"
     >
       <div className="container mx-auto px-6 sm:px-12 max-w-7xl relative z-10 space-y-12 lg:space-y-16">
-        <div className="space-y-4 max-w-3xl">
-          <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-600 text-white text-xs sm:text-sm font-semibold tracking-wider uppercase backdrop-blur-md border border-cyan-400/20">
-            Contact Me
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-header text-white tracking-tight leading-tight">
-            Let's Connect Together.
-          </h2>
-          <p className="text-lg lg:text-base text-white/75 leading-relaxed">
-            I'm always eager to discuss and exchange ideas about IT, and I’m
-            open to opportunities for collaboration or internships. Let’s
-            connect!
-          </p>
-          <div className="flex items-center gap-3 pt-2">
-            {socialContacts.map((contact, index) => (
-              <a
-                key={index}
-                href={contact.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                title={contact.name}
-                className="p-2.5 rounded-full bg-white/5 border border-white/10 hover:border-cyan-500/50 hover:bg-cyan-500/10 text-white/80 hover:text-white transition-all duration-300 hover:scale-110 active:scale-95"
-              >
-                <img
-                  src={contact.icon}
-                  alt={contact.alt}
-                  className="w-5 h-5 object-contain"
-                />
-              </a>
-            ))}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          <div className="space-y-4 max-w-3xl">
+            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-600 text-white text-xs sm:text-sm font-semibold tracking-wider uppercase backdrop-blur-md border border-cyan-400/20">
+              Contact Me
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-header text-white tracking-tight leading-tight">
+              Let's Connect Together.
+            </h2>
+            <p className="text-lg lg:text-base text-white/75 leading-relaxed">
+              I'm always eager to discuss and exchange ideas about IT, and I’m
+              open to opportunities for collaboration or internships. Let’s
+              connect!
+            </p>
+            <div className="flex items-center gap-3 pt-2">
+              {socialContacts.map((contact, index) => (
+                <a
+                  key={index}
+                  href={contact.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={contact.name}
+                  className="p-2.5 rounded-full bg-white/10 hover:bg-cyan-600 transition-all duration-300 active:scale-95"
+                >
+                  <Image
+                    src={contact.icon}
+                    alt={contact.alt}
+                    width={24}
+                    height={24}
+                    className="w-5 h-5 object-contain"
+                  />
+                </a>
+              ))}
+            </div>
           </div>
 
-          <div className="mt-8 bg-neutral-900/60 backdrop-blur-xl border border-white/10 rounded-2xl p-6 md:p-8">
+          <div className="bg-neutral-900/60 backdrop-blur-xl border border-white/10 rounded-2xl p-6 md:p-8">
             <form
               action={process.env.NEXT_PUBLIC_FORM_URL}
               method="POST"
