@@ -68,7 +68,7 @@ export default function Contact() {
                   target="_blank"
                   rel="noopener noreferrer"
                   title={contact.name}
-                  className="p-2.5 rounded-full bg-white/10 hover:bg-cyan-600 transition-all duration-300 active:scale-95"
+                  className="p-2.5 rounded-full bg-neutral-800 hover:bg-cyan-600 transition-all duration-300 active:scale-95"
                 >
                   <Image
                     src={contact.icon}
@@ -156,7 +156,7 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="w-full self-start px-8 py-3.5 rounded-lg flex gap-2 items-center justify-center bg-cyan-400 hover:bg-cyan-300 text-black hover:shadow-[0_0_20px_rgba(0,229,255,0.35)] shadow-lg font-body text-sm font-bold tracking-wider transition-colors duration-300 group"
+                className="w-full self-start px-8 py-3.5 rounded-lg flex gap-2 items-center justify-center bg-cyan-400 hover:bg-cyan-300 text-black hover:shadow-[0_0_20px_rgba(0,229,255,0.35)] shadow-lg font-body text-sm font-bold tracking-wider active:scale-95 transition-all duration-300 group"
               >
                 Send Message
               </button>

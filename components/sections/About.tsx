@@ -5,7 +5,7 @@ export default function About() {
     {
       icon: GraduationCap,
       label: "Education",
-      value: "B.S. in Computer Science @ UDINUS",
+      value: "B.S. in Computer Science at UDINUS",
       subText: "Universitas Dian Nusantoro",
     },
     {

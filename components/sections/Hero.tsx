@@ -27,14 +27,14 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row items-center gap-4 pt-4 w-full sm:w-auto">
               <a
                 href="#projects"
-                className="w-full lg:w-auto text-center px-8 py-3.5 rounded-full bg-cyan-400 hover:bg-cyan-300 text-black text-sm font-semibold shadow-lg hover:shadow-[0_0_20px_rgba(0,229,255,0.35)] transition-all duration-300"
+                className="w-full lg:w-auto text-center px-8 py-3.5 rounded-full bg-cyan-400 hover:bg-cyan-300 text-black text-sm font-semibold shadow-lg hover:shadow-[0_0_20px_rgba(0,229,255,0.35)] active:scale-95 transition-all duration-300"
               >
                 View Projects
               </a>
               <a
                 href="/cv/Fadhiil_Fiannata_N_CV.pdf"
                 download="Fadhiil_Fiannata_N_CV.pdf"
-                className="w-full lg:w-auto  text-center px-8 py-3.5 rounded-full border border-neutral-800 text-neutral-300 text-sm font-semibold hover:bg-neutral-900/50 transition-all duration-300"
+                className="w-full lg:w-auto  text-center px-8 py-3.5 rounded-full bg-background border border-neutral-800 text-neutral-300 text-sm font-semibold hover:bg-neutral-900/50 active:scale-95 transition-all duration-300"
               >
                 Download CV
               </a>

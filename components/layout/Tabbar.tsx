@@ -18,7 +18,7 @@ export default function Tabbar() {
             <Link
               key={item.id}
               href={item.href}
-              className="relative px-3 py-1.5 text-neutral-400 hover:text-white hover:bg-neutral-800 text-xs sm:text-sm font-medium rounded-full transition-colors duration-300 z-10"
+              className="relative px-3 py-1.5 text-neutral-400 hover:text-white hover:bg-neutral-800 text-xs sm:text-sm font-medium rounded-full transition-all duration-300 z-10 active:bg-neutral-600 active:scale-95"
             >
               {item.label}
             </Link>
