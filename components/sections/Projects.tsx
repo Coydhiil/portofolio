@@ -11,10 +11,11 @@ export default async function Projects() {
     }
 
     return (
-        <section id="projects" className="relative font-paragraph min-h-screen py-24 lg:py-32 overflow-hidden">
+        <section
+            id="projects"
+            className="relative font-paragraph min-h-screen py-24 lg:py-32 overflow-hidden"
+        >
             <div className="container mx-auto px-6 sm:px-12 max-w-7xl relative z-10 space-y-16 lg:space-y-20">
-                <div className="absolute top-40 -left-30 w-48 h-48 bg-indigo-600/15 rounded-full blur-2xl transform-gpu pointer-events-none"></div>
-
                 <div className="flex flex-col gap-3 mb-10">
                     <div className="space-y-4">
                         <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-600 text-white text-xs sm:text-sm font-semibold tracking-wider uppercase">
@@ -24,8 +25,6 @@ export default async function Projects() {
                             The Work That I Have Built.
                         </h2>
                     </div>
-
-                    <div className="absolute bottom-40 -right-20 w-48 h-48 bg-indigo-600/15 rounded-full blur-2xl transform-gpu pointer-events-none"></div>
 
                     {error && (
                         <p className="text-red-400 text-sm bg-red-950/40 border border-red-800/50 px-4 py-2 rounded-lg inline-block">

@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { Montserrat, Open_Sans, Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "../components/layout/Navbar";
-import Tabbar from "../components/layout/Tabbar";
-import Footer from "../components/layout/Footer";
+import Navbar from "@/components/layout/Navbar";
+import Tabbar from "@/components/layout/Tabbar";
+import Footer from "@/components/layout/Footer";
 import { cn } from "@/lib/utils";
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -32,12 +32,22 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn("h-full", "antialiased", montserrat.variable, openSans.variable, "font-sans", inter.variable)}
+      className={cn(
+        "h-full",
+        "antialiased",
+        montserrat.variable,
+        openSans.variable,
+        "font-sans",
+        inter.variable,
+      )}
     >
       <head>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/dheereshag/coloured-icons@1.9.7/app/ci.min.css" />
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/dheereshag/coloured-icons@1.9.7/app/ci.min.css"
+        />
       </head>
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full h-screen flex flex-col">
         <Navbar></Navbar>
         {children}
         <Footer></Footer>

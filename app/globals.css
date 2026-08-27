@@ -3,6 +3,7 @@
 :root {
   --background: #0a0a0a;
   --foreground: #ededed;
+  --dot: #2726267f;
   --font-header: var(--font-montserrat), sans-serif;
   --font-paragraph: var(--font-open-sans), sans-serif;
   color-scheme: dark;
@@ -24,4 +25,6 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-paragraph);
+  background-image: radial-gradient(var(--dot) 2px, transparent 2px);
+  background-size: 32px 32px;
 }

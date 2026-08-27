@@ -1,40 +1,48 @@
-import React, { useEffect, useRef, useCallback, useMemo, useState } from 'react';
-import './ProfileCard.css';
+import React, {
+  useEffect,
+  useRef,
+  useCallback,
+  useMemo,
+  useState,
+} from "react";
+import "./ProfileCard.css";
 import Image from "next/image";
 
-const DEFAULT_INNER_GRADIENT = 'linear-gradient(145deg,#60496e8c 0%,#71C4FF44 100%)';
+const DEFAULT_INNER_GRADIENT =
+  "linear-gradient(145deg,#60496e8c 0%,#71C4FF44 100%)";
 
 const ANIMATION_CONFIG = {
   INITIAL_DURATION: 1200,
   INITIAL_X_OFFSET: 70,
   INITIAL_Y_OFFSET: 60,
   DEVICE_BETA_OFFSET: 20,
-  ENTER_TRANSITION_MS: 180
+  ENTER_TRANSITION_MS: 180,
 };
 
 const clamp = (v, min = 0, max = 100) => Math.min(Math.max(v, min), max);
 const round = (v, precision = 3) => parseFloat(v.toFixed(precision));
-const adjust = (v, fMin, fMax, tMin, tMax) => round(tMin + ((tMax - tMin) * (v - fMin)) / (fMax - fMin));
+const adjust = (v, fMin, fMax, tMin, tMax) =>
+  round(tMin + ((tMax - tMin) * (v - fMin)) / (fMax - fMin));
 
 const ProfileCardComponent = ({
-  avatarUrl = '<Placeholder for avatar URL>',
-  iconUrl = '<Placeholder for icon URL>',
-  grainUrl = '<Placeholder for grain URL>',
+  avatarUrl = "<Placeholder for avatar URL>",
+  iconUrl = "<Placeholder for icon URL>",
+  grainUrl = "<Placeholder for grain URL>",
   innerGradient = DEFAULT_INNER_GRADIENT,
   behindGlowEnabled = true,
-  behindGlowColor = 'rgba(125, 190, 255, 0.67)',
-  behindGlowSize = '50%',
-  className = '',
+  behindGlowColor = "rgba(125, 190, 255, 0.67)",
+  behindGlowSize = "50%",
+  className = "",
   enableTilt = true,
   enableMobileTilt = false,
   mobileTiltSensitivity = 5,
-  miniAvatarUrl = '',
-  location = 'Semarang, ID',
-  campus = 'UDINUS',
+  miniAvatarUrl = "",
+  location = "Semarang, ID",
+  campus = "UDINUS",
   email = "fadhiil.fiannata@email.com",
-  contactText = 'Contact',
+  contactText = "Contact",
   showUserInfo = true,
-  onContactClick = () => { }
+  onContactClick = () => { },
 }) => {
   const [copied, setCopied] = useState(false);
   const wrapRef = useRef(null);
@@ -74,21 +82,22 @@ const ProfileCardComponent = ({
       const centerY = percentY - 50;
 
       const properties = {
-        '--pointer-x': `${percentX}%`,
-        '--pointer-y': `${percentY}%`,
-        '--background-x': `${adjust(percentX, 0, 100, 35, 65)}%`,
-        '--background-y': `${adjust(percentY, 0, 100, 35, 65)}%`,
-        '--pointer-from-center': `${clamp(Math.hypot(percentY - 50, percentX - 50) / 50, 0, 1)}`,
-        '--pointer-from-top': `${percentY / 100}`,
-        '--pointer-from-left': `${percentX / 100}`,
-        '--rotate-x': `${round(-(centerX / 5))}deg`,
-        '--rotate-y': `${round(centerY / 4)}deg`
+        "--pointer-x": `${percentX}%`,
+        "--pointer-y": `${percentY}%`,
+        "--background-x": `${adjust(percentX, 0, 100, 35, 65)}%`,
+        "--background-y": `${adjust(percentY, 0, 100, 35, 65)}%`,
+        "--pointer-from-center": `${clamp(Math.hypot(percentY - 50, percentX - 50) / 50, 0, 1)}`,
+        "--pointer-from-top": `${percentY / 100}`,
+        "--pointer-from-left": `${percentX / 100}`,
+        "--rotate-x": `${round(-(centerX / 5))}deg`,
+        "--rotate-y": `${round(centerY / 4)}deg`,
       };
 
-      for (const [k, v] of Object.entries(properties)) wrap.style.setProperty(k, v);
+      for (const [k, v] of Object.entries(properties))
+        wrap.style.setProperty(k, v);
     };
 
-    const step = ts => {
+    const step = (ts) => {
       if (!running) return;
       if (lastTs === 0) lastTs = ts;
       const dt = (ts - lastTs) / 1000;
@@ -102,7 +111,9 @@ const ProfileCardComponent = ({
 
       setVarsFromXY(currentX, currentY);
 
-      const stillFar = Math.abs(targetX - currentX) > 0.05 || Math.abs(targetY - currentY) > 0.05;
+      const stillFar =
+        Math.abs(targetX - currentX) > 0.05 ||
+        Math.abs(targetY - currentY) > 0.05;
 
       if (stillFar || document.hasFocus()) {
         rafId = requestAnimationFrame(step);
@@ -151,7 +162,7 @@ const ProfileCardComponent = ({
         rafId = null;
         running = false;
         lastTs = 0;
-      }
+      },
     };
   }, [enableTilt]);
 
@@ -161,31 +172,31 @@ const ProfileCardComponent = ({
   };
 
   const handlePointerMove = useCallback(
-    event => {
+    (event) => {
       const shell = shellRef.current;
       if (!shell || !tiltEngine) return;
       const { x, y } = getOffsets(event, shell);
       tiltEngine.setTarget(x, y);
     },
-    [tiltEngine]
+    [tiltEngine],
   );
 
   const handlePointerEnter = useCallback(
-    event => {
+    (event) => {
       const shell = shellRef.current;
       if (!shell || !tiltEngine) return;
 
-      shell.classList.add('active');
-      shell.classList.add('entering');
+      shell.classList.add("active");
+      shell.classList.add("entering");
       if (enterTimerRef.current) window.clearTimeout(enterTimerRef.current);
       enterTimerRef.current = window.setTimeout(() => {
-        shell.classList.remove('entering');
+        shell.classList.remove("entering");
       }, ANIMATION_CONFIG.ENTER_TRANSITION_MS);
 
       const { x, y } = getOffsets(event, shell);
       tiltEngine.setTarget(x, y);
     },
-    [tiltEngine]
+    [tiltEngine],
   );
 
   const handlePointerLeave = useCallback(() => {
@@ -198,7 +209,7 @@ const ProfileCardComponent = ({
       const { x, y, tx, ty } = tiltEngine.getCurrent();
       const settled = Math.hypot(tx - x, ty - y) < 0.6;
       if (settled) {
-        shell.classList.remove('active');
+        shell.classList.remove("active");
         leaveRafRef.current = null;
       } else {
         leaveRafRef.current = requestAnimationFrame(checkSettle);
@@ -209,7 +220,7 @@ const ProfileCardComponent = ({
   }, [tiltEngine]);
 
   const handleDeviceOrientation = useCallback(
-    event => {
+    (event) => {
       const shell = shellRef.current;
       if (!shell || !tiltEngine) return;
 
@@ -218,16 +229,21 @@ const ProfileCardComponent = ({
 
       const centerX = shell.clientWidth / 2;
       const centerY = shell.clientHeight / 2;
-      const x = clamp(centerX + gamma * mobileTiltSensitivity, 0, shell.clientWidth);
-      const y = clamp(
-        centerY + (beta - ANIMATION_CONFIG.DEVICE_BETA_OFFSET) * mobileTiltSensitivity,
+      const x = clamp(
+        centerX + gamma * mobileTiltSensitivity,
         0,
-        shell.clientHeight
+        shell.clientWidth,
+      );
+      const y = clamp(
+        centerY +
+        (beta - ANIMATION_CONFIG.DEVICE_BETA_OFFSET) * mobileTiltSensitivity,
+        0,
+        shell.clientHeight,
       );
 
       tiltEngine.setTarget(x, y);
     },
-    [tiltEngine, mobileTiltSensitivity]
+    [tiltEngine, mobileTiltSensitivity],
   );
 
   useEffect(() => {
@@ -241,44 +257,48 @@ const ProfileCardComponent = ({
     const pointerLeaveHandler = handlePointerLeave;
     const deviceOrientationHandler = handleDeviceOrientation;
 
-    shell.addEventListener('pointerenter', pointerEnterHandler);
-    shell.addEventListener('pointermove', pointerMoveHandler);
-    shell.addEventListener('pointerleave', pointerLeaveHandler);
+    shell.addEventListener("pointerenter", pointerEnterHandler);
+    shell.addEventListener("pointermove", pointerMoveHandler);
+    shell.addEventListener("pointerleave", pointerLeaveHandler);
 
     const handleClick = () => {
-      if (!enableMobileTilt || location.protocol !== 'https:') return;
+      if (!enableMobileTilt || location.protocol !== "https:") return;
       const anyMotion = window.DeviceMotionEvent;
-      if (anyMotion && typeof anyMotion.requestPermission === 'function') {
+      if (anyMotion && typeof anyMotion.requestPermission === "function") {
         anyMotion
           .requestPermission()
-          .then(state => {
-            if (state === 'granted') {
-              window.addEventListener('deviceorientation', deviceOrientationHandler);
+          .then((state) => {
+            if (state === "granted") {
+              window.addEventListener(
+                "deviceorientation",
+                deviceOrientationHandler,
+              );
             }
           })
           .catch(console.error);
       } else {
-        window.addEventListener('deviceorientation', deviceOrientationHandler);
+        window.addEventListener("deviceorientation", deviceOrientationHandler);
       }
     };
-    shell.addEventListener('click', handleClick);
+    shell.addEventListener("click", handleClick);
 
-    const initialX = (shell.clientWidth || 0) - ANIMATION_CONFIG.INITIAL_X_OFFSET;
+    const initialX =
+      (shell.clientWidth || 0) - ANIMATION_CONFIG.INITIAL_X_OFFSET;
     const initialY = ANIMATION_CONFIG.INITIAL_Y_OFFSET;
     tiltEngine.setImmediate(initialX, initialY);
     tiltEngine.toCenter();
     tiltEngine.beginInitial(ANIMATION_CONFIG.INITIAL_DURATION);
 
     return () => {
-      shell.removeEventListener('pointerenter', pointerEnterHandler);
-      shell.removeEventListener('pointermove', pointerMoveHandler);
-      shell.removeEventListener('pointerleave', pointerLeaveHandler);
-      shell.removeEventListener('click', handleClick);
-      window.removeEventListener('deviceorientation', deviceOrientationHandler);
+      shell.removeEventListener("pointerenter", pointerEnterHandler);
+      shell.removeEventListener("pointermove", pointerMoveHandler);
+      shell.removeEventListener("pointerleave", pointerLeaveHandler);
+      shell.removeEventListener("click", handleClick);
+      window.removeEventListener("deviceorientation", deviceOrientationHandler);
       if (enterTimerRef.current) window.clearTimeout(enterTimerRef.current);
       if (leaveRafRef.current) cancelAnimationFrame(leaveRafRef.current);
       tiltEngine.cancel();
-      shell.classList.remove('entering');
+      shell.classList.remove("entering");
     };
   }, [
     enableTilt,
@@ -287,35 +307,42 @@ const ProfileCardComponent = ({
     handlePointerMove,
     handlePointerEnter,
     handlePointerLeave,
-    handleDeviceOrientation
+    handleDeviceOrientation,
   ]);
 
   const cardStyle = useMemo(
     () => ({
-      '--icon': iconUrl ? `url(${iconUrl})` : 'none',
-      '--grain': grainUrl ? `url(${grainUrl})` : 'none',
-      '--inner-gradient': innerGradient ?? DEFAULT_INNER_GRADIENT,
-      '--behind-glow-color': behindGlowColor ?? 'rgba(125, 190, 255, 0.67)',
-      '--behind-glow-size': behindGlowSize ?? '50%'
+      "--icon": iconUrl ? `url(${iconUrl})` : "none",
+      "--grain": grainUrl ? `url(${grainUrl})` : "none",
+      "--inner-gradient": innerGradient ?? DEFAULT_INNER_GRADIENT,
+      "--behind-glow-color": behindGlowColor ?? "rgba(125, 190, 255, 0.67)",
+      "--behind-glow-size": behindGlowSize ?? "50%",
     }),
-    [iconUrl, grainUrl, innerGradient, behindGlowColor, behindGlowSize]
+    [iconUrl, grainUrl, innerGradient, behindGlowColor, behindGlowSize],
   );
 
   const handleContactClick = useCallback(() => {
     onContactClick?.();
   }, [onContactClick]);
 
-  const handleCopyEmail = useCallback((e) => {
-    e.stopPropagation();
-    if (typeof navigator !== 'undefined' && navigator.clipboard) {
-      navigator.clipboard.writeText(email);
-    }
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2200);
-  }, [email]);
+  const handleCopyEmail = useCallback(
+    (e) => {
+      e.stopPropagation();
+      if (typeof navigator !== "undefined" && navigator.clipboard) {
+        navigator.clipboard.writeText(email);
+      }
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2200);
+    },
+    [email],
+  );
 
   return (
-    <div ref={wrapRef} className={`pc-card-wrapper ${className}`.trim()} style={cardStyle}>
+    <div
+      ref={wrapRef}
+      className={`pc-card-wrapper ${className}`.trim()}
+      style={cardStyle}
+    >
       {behindGlowEnabled && <div className="pc-behind" />}
       <div ref={shellRef} className="pc-card-shell">
         <section className="pc-card">
@@ -328,9 +355,9 @@ const ProfileCardComponent = ({
                 width={400}
                 height={400}
                 priority={true}
-                onError={e => {
+                onError={(e) => {
                   const t = e.target;
-                  t.style.display = 'none';
+                  t.style.display = "none";
                 }}
               />
               {showUserInfo && (
@@ -343,9 +370,9 @@ const ProfileCardComponent = ({
                         width={400}
                         height={400}
                         loading="eager"
-                        onError={e => {
+                        onError={(e) => {
                           const t = e.target;
-                          t.style.opacity = '0.5';
+                          t.style.opacity = "0.5";
                           t.src = avatarUrl;
                         }}
                       />
@@ -358,21 +385,48 @@ const ProfileCardComponent = ({
                   <div className="pc-actions">
                     <button
                       type="button"
-                      className={`pc-action-icon-btn ${copied ? 'copied' : ''}`}
+                      className={`pc-action-icon-btn ${copied ? "copied" : ""}`}
                       onClick={handleCopyEmail}
                       title={copied ? "Email Copied!" : "Copy Email"}
                     >
                       {copied ? (
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <svg
+                          width="15"
+                          height="15"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
                           <polyline points="20 6 9 17 4 12" />
                         </svg>
                       ) : (
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                        <svg
+                          width="15"
+                          height="15"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <rect
+                            x="9"
+                            y="9"
+                            width="13"
+                            height="13"
+                            rx="2"
+                            ry="2"
+                          />
                           <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
                         </svg>
                       )}
-                      <span className="pc-tooltip">{copied ? "Copied!" : "Copy Email"}</span>
+                      <span className="pc-tooltip">
+                        {copied ? "Copied!" : "Copy Email"}
+                      </span>
                     </button>
 
                     <button
@@ -381,7 +435,16 @@ const ProfileCardComponent = ({
                       type="button"
                     >
                       <span>{contactText}</span>
-                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <svg
+                        width="13"
+                        height="13"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
                         <line x1="7" y1="17" x2="17" y2="7" />
                         <polyline points="7 7 17 7 17 17" />
                       </svg>
