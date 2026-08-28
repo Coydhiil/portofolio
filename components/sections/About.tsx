@@ -54,7 +54,7 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
           <div className="text-white/75 lg:col-span-7 space-y-6 text-base sm:text-lg leading-relaxed flex flex-col justify-center">
             <p>
-              Hi! I’m{" "}
+              Hi! I'm{" "}
               <strong className="text-white font-semibold">
                 Fadhiil Fiannata N
               </strong>
@@ -78,7 +78,7 @@ export default function About() {
           </div>
 
           <div className="lg:col-span-5 flex">
-            <div className="relative w-full p-6 sm:p-8 rounded-2xl bg-neutral-900/60 backdrop-blur-xl border border-neutral-800 shadow-2xl space-y-6 hover:border-cyan-500/50 transition-all duration-300 flex flex-col justify-between">
+            <div className="relative w-full p-6 sm:p-8 rounded-2xl bg-neutral-900/60 backdrop-blur-xl border border-neutral-800 shadow-2xl space-y-6 flex flex-col justify-between">
               <div className="space-y-6">
                 <h3 className="text-lg font-semibold text-white font-header tracking-wide flex items-center gap-2 border-b border-neutral-800 pb-4">
                   Quick Profile
@@ -87,11 +87,11 @@ export default function About() {
                 <div className="space-y-5">
                   {quickInfo.map((item, idx) => (
                     <div key={idx} className="flex items-start gap-4">
-                      <div className="p-2.5 rounded-xl bg-cyan-950/60 border border-cyan-500/20 text-cyan-400 shrink-0 mt-0.5">
+                      <div className="p-2.5 rounded-xl bg-cyan-500 text-white mt-0.5">
                         <item.icon className="w-5 h-5" />
                       </div>
                       <div>
-                        <p className="text-xs uppercase tracking-wider text-neutral-400 font-medium">
+                        <p className="text-xs uppercase tracking-wider text- font-medium">
                           {item.label}
                         </p>
                         <p className="text-sm sm:text-base text-neutral-100 font-semibold">
@@ -120,10 +120,10 @@ export default function About() {
             {services.map((service, idx) => (
               <div
                 key={idx}
-                className="group relative p-8 rounded-2xl bg-neutral-900/40 backdrop-blur-md border border-neutral-800/90 hover:border-cyan-500/50 hover:shadow-[0_0_30px_rgba(6,182,212,0.15)] transition-all duration-300 flex flex-col justify-between space-y-6"
+                className="group relative p-8 rounded-2xl bg-neutral-900/40 backdrop-blur-md border border-neutral-800/90 flex flex-col justify-between space-y-6"
               >
                 <div className="space-y-4">
-                  <h4 className="text-xl font-bold text-white font-header group-hover:text-cyan-400 transition-colors">
+                  <h4 className="text-xl font-bold text-white font-header">
                     {service.title}
                   </h4>
 
@@ -136,7 +136,7 @@ export default function About() {
                   {service.tags.map((tag, tagIdx) => (
                     <span
                       key={tagIdx}
-                      className="px-2.5 py-1 rounded-md bg-neutral-800/80 border border-neutral-700/50 text-neutral-300 text-xs font-medium"
+                      className="px-2.5 py-1 rounded-md bg-neutral-800/80 text-neutral-300 text-xs font-medium"
                     >
                       {tag}
                     </span>

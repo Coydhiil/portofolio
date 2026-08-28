@@ -3,7 +3,7 @@
 :root {
   --background: #0a0a0a;
   --foreground: #ededed;
-  --dot: #2726267f;
+  --dot: #272626;
   --font-header: var(--font-montserrat), sans-serif;
   --font-paragraph: var(--font-open-sans), sans-serif;
   color-scheme: dark;
@@ -12,6 +12,7 @@
 @theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-dot: var(--dot);
   --font-header: var(--font-header);
   --font-header: var(--font-montserrat), sans-serif;
   --font-paragraph: var(--font-open-sans), sans-serif;
@@ -27,4 +28,13 @@ body {
   font-family: var(--font-paragraph);
   background-image: radial-gradient(var(--dot) 2px, transparent 2px);
   background-size: 32px 32px;
+}
+
+.gradient {
+  background-image:
+    linear-gradient(360deg, var(--dot), transparent 55%),
+    radial-gradient(var(--dot) 2px, transparent 2px);
+  background-size:
+    100% 100%,
+    32px 32px;
 }

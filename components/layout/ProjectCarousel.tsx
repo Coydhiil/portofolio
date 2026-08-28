@@ -159,11 +159,11 @@ export default function ProjectCarousel({ projects }: ProjectCarouselProps) {
                     <span className="text-xs text-white font-medium">
                       Tech Stack
                     </span>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-2 mt-4">
                       {current.tags.map((tag, idx) => (
                         <span
                           key={idx}
-                          className="text-xs font-semibold text-cyan-400 border border-cyan-600/30 px-3 py-1 rounded-full backdrop-blur-sm"
+                          className="text-xs font-extrabold bg-cyan-500 text-white px-3 py-1 rounded-full backdrop-blur-sm"
                         >
                           {tag}
                         </span>

@@ -1,6 +1,6 @@
 "use client";
-import Image from "next/image";
 
+import SocialLists from "../layout/SocialLists";
 import { useState } from "react";
 
 export default function Contact() {
@@ -56,30 +56,11 @@ export default function Contact() {
               Let's Connect Together.
             </h2>
             <p className="text-lg lg:text-base text-white/75 leading-relaxed">
-              I'm always eager to discuss and exchange ideas about IT, and I’m
-              open to opportunities for collaboration or internships. Let’s
+              I'm always eager to discuss and exchange ideas about IT, and I'm
+              open to opportunities for collaboration or internships. Let's
               connect!
             </p>
-            <div className="flex items-center gap-3 pt-2">
-              {socialContacts.map((contact, index) => (
-                <a
-                  key={index}
-                  href={contact.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title={contact.name}
-                  className="p-2.5 rounded-full bg-neutral-800 hover:bg-cyan-600 transition-all duration-300 active:scale-95"
-                >
-                  <Image
-                    src={contact.icon}
-                    alt={contact.alt}
-                    width={24}
-                    height={24}
-                    className="w-5 h-5 object-contain"
-                  />
-                </a>
-              ))}
-            </div>
+            <SocialLists className="p-2.5 rounded-full bg-neutral-800 hover:bg-cyan-500 active:bg-cyan-400 transition-all duration-300 active:scale-95" />
           </div>
 
           <div className="bg-neutral-900/60 backdrop-blur-xl border border-white/10 rounded-2xl p-6 md:p-8">
