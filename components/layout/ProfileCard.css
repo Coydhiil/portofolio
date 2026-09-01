@@ -55,11 +55,6 @@
   transition: opacity 200ms ease;
 }
 
-.pc-card-wrapper:hover,
-.pc-card-wrapper.active {
-  --card-opacity: 1;
-}
-
 .pc-card {
   height: 65svh;
   max-height: 540px;
@@ -79,10 +74,29 @@
   overflow: hidden;
 }
 
-.pc-card:hover,
-.pc-card.active {
-  transition: none;
-  transform: translateZ(0) rotateX(var(--rotate-y)) rotateY(var(--rotate-x));
+@media (hover: hover) and (pointer: fine) {
+  .pc-card-wrapper:hover,
+  .pc-card-wrapper.active {
+    --card-opacity: 1;
+  }
+
+  .pc-card:hover,
+  .pc-card.active {
+    transition: none;
+    transform: translateZ(0) rotateX(var(--rotate-y)) rotateY(var(--rotate-x));
+  }
+}
+
+@media (max-width: 768px), (pointer: coarse) {
+  .pc-card,
+  .pc-card:hover,
+  .pc-card.active {
+    transform: none !important;
+  }
+
+  .pc-avatar-content .avatar {
+    transform: translateX(-50%) translateZ(0) !important;
+  }
 }
 
 .pc-card-shell.entering .pc-card {

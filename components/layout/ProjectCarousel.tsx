@@ -100,7 +100,9 @@ export default function ProjectCarousel({ projects }: ProjectCarouselProps) {
                 src={current.img_url || "/placeholder-project.png"}
                 alt={current.name}
                 fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 50vw"
+                quality={75}
+                loading="lazy"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 60vw, 600px"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 onError={(e) => {
                   (e.target as HTMLImageElement).src =
@@ -218,9 +220,8 @@ export default function ProjectCarousel({ projects }: ProjectCarouselProps) {
               key={idx}
               onClick={() => goToSlide(idx)}
               aria-label={`Go to slide ${idx + 1}`}
-              className={`h-2.5 rounded-full transition-all duration-500 ${
-                currentIndex === idx ? "w-9 bg-cyan-300" : "w-2.5 bg-white/20"
-              }`}
+              className={`h-2.5 rounded-full transition-all duration-500 ${currentIndex === idx ? "w-9 bg-cyan-300" : "w-2.5 bg-white/20"
+                }`}
             />
           ))}
         </div>

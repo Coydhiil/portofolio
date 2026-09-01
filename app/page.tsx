@@ -3,19 +3,25 @@ import Hero from "../components/sections/Hero";
 
 const About = dynamic(() => import("../components/sections/About"), {
   loading: () => (
-    <p className="py-20 text-center text-zinc-500">Loading About...</p>
+    <div className="min-h-[600px] flex items-center justify-center py-20 text-center text-zinc-500">
+      Loading About...
+    </div>
   ),
 });
 
 const Projects = dynamic(() => import("../components/sections/Projects"), {
   loading: () => (
-    <p className="py-20 text-center text-zinc-500">Loading Projects...</p>
+    <div className="min-h-[600px] flex items-center justify-center py-20 text-center text-zinc-500">
+      Loading Projects...
+    </div>
   ),
 });
 
 const Contact = dynamic(() => import("../components/sections/Contact"), {
   loading: () => (
-    <p className="py-20 text-center text-zinc-500">Loading Contact...</p>
+    <div className="min-h-[400px] flex items-center justify-center py-20 text-center text-zinc-500">
+      Loading Contact...
+    </div>
   ),
 });
 

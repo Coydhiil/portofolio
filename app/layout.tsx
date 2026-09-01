@@ -41,12 +41,6 @@ export default function RootLayout({
         inter.variable,
       )}
     >
-      <head>
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/gh/dheereshag/coloured-icons@1.9.7/app/ci.min.css"
-        />
-      </head>
       <body className="min-h-full h-screen flex flex-col">
         <Navbar></Navbar>
         {children}

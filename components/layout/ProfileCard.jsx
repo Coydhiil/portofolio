@@ -42,7 +42,7 @@ const ProfileCardComponent = ({
   email = "fadhiil.fiannata@email.com",
   contactText = "Contact",
   showUserInfo = true,
-  onContactClick = () => {},
+  onContactClick = () => { },
 }) => {
   const [copied, setCopied] = useState(false);
   const wrapRef = useRef(null);
@@ -173,6 +173,7 @@ const ProfileCardComponent = ({
 
   const handlePointerMove = useCallback(
     (event) => {
+      if (event.pointerType === "touch") return;
       const shell = shellRef.current;
       if (!shell || !tiltEngine) return;
       const { x, y } = getOffsets(event, shell);
@@ -183,6 +184,7 @@ const ProfileCardComponent = ({
 
   const handlePointerEnter = useCallback(
     (event) => {
+      if (event.pointerType === "touch") return;
       const shell = shellRef.current;
       if (!shell || !tiltEngine) return;
 
@@ -236,7 +238,7 @@ const ProfileCardComponent = ({
       );
       const y = clamp(
         centerY +
-          (beta - ANIMATION_CONFIG.DEVICE_BETA_OFFSET) * mobileTiltSensitivity,
+        (beta - ANIMATION_CONFIG.DEVICE_BETA_OFFSET) * mobileTiltSensitivity,
         0,
         shell.clientHeight,
       );
@@ -247,7 +249,12 @@ const ProfileCardComponent = ({
   );
 
   useEffect(() => {
-    if (!enableTilt || !tiltEngine) return;
+    const isMobileViewport =
+      typeof window !== "undefined" &&
+      (window.innerWidth <= 768 ||
+        window.matchMedia("(pointer: coarse)").matches);
+
+    if (isMobileViewport || !enableTilt || !tiltEngine) return;
 
     const shell = shellRef.current;
     if (!shell) return;
@@ -255,32 +262,10 @@ const ProfileCardComponent = ({
     const pointerMoveHandler = handlePointerMove;
     const pointerEnterHandler = handlePointerEnter;
     const pointerLeaveHandler = handlePointerLeave;
-    const deviceOrientationHandler = handleDeviceOrientation;
 
     shell.addEventListener("pointerenter", pointerEnterHandler);
     shell.addEventListener("pointermove", pointerMoveHandler);
     shell.addEventListener("pointerleave", pointerLeaveHandler);
-
-    const handleClick = () => {
-      if (!enableMobileTilt || location.protocol !== "https:") return;
-      const anyMotion = window.DeviceMotionEvent;
-      if (anyMotion && typeof anyMotion.requestPermission === "function") {
-        anyMotion
-          .requestPermission()
-          .then((state) => {
-            if (state === "granted") {
-              window.addEventListener(
-                "deviceorientation",
-                deviceOrientationHandler,
-              );
-            }
-          })
-          .catch(console.error);
-      } else {
-        window.addEventListener("deviceorientation", deviceOrientationHandler);
-      }
-    };
-    shell.addEventListener("click", handleClick);
 
     const initialX =
       (shell.clientWidth || 0) - ANIMATION_CONFIG.INITIAL_X_OFFSET;
@@ -293,8 +278,6 @@ const ProfileCardComponent = ({
       shell.removeEventListener("pointerenter", pointerEnterHandler);
       shell.removeEventListener("pointermove", pointerMoveHandler);
       shell.removeEventListener("pointerleave", pointerLeaveHandler);
-      shell.removeEventListener("click", handleClick);
-      window.removeEventListener("deviceorientation", deviceOrientationHandler);
       if (enterTimerRef.current) window.clearTimeout(enterTimerRef.current);
       if (leaveRafRef.current) cancelAnimationFrame(leaveRafRef.current);
       tiltEngine.cancel();
@@ -302,12 +285,10 @@ const ProfileCardComponent = ({
     };
   }, [
     enableTilt,
-    enableMobileTilt,
     tiltEngine,
     handlePointerMove,
     handlePointerEnter,
     handlePointerLeave,
-    handleDeviceOrientation,
   ]);
 
   const cardStyle = useMemo(
@@ -369,7 +350,8 @@ const ProfileCardComponent = ({
                         alt="Fadhiil"
                         width={400}
                         height={400}
-                        loading="eager"
+                        loading="lazy"
+                        decoding="async"
                         onError={(e) => {
                           const t = e.target;
                           t.style.opacity = "0.5";
